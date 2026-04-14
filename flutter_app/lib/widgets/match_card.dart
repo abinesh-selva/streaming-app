@@ -12,8 +12,8 @@ class MatchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final team1 = MatchService.iplTeams[match.team1];
-    final team2 = MatchService.iplTeams[match.team2];
+    final team1 = MatchService.getTeam(match.team1);
+    final team2 = MatchService.getTeam(match.team2);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -65,8 +65,8 @@ class MatchCard extends StatelessWidget {
                         TeamShield(
                           teamShort: match.team1,
                           size: 60,
-                          primaryColor: team1?.primaryColor ?? Colors.grey,
-                          secondaryColor: team1?.secondaryColor ?? Colors.black,
+                          primaryColor: team1.primaryColor,
+                          secondaryColor: team1.secondaryColor,
                         ),
                         SizedBox(height: 8),
                         Text(match.team1, style: TextStyle(fontWeight: FontWeight.bold)),
@@ -97,8 +97,8 @@ class MatchCard extends StatelessWidget {
                         TeamShield(
                           teamShort: match.team2,
                           size: 60,
-                          primaryColor: team2?.primaryColor ?? Colors.grey,
-                          secondaryColor: team2?.secondaryColor ?? Colors.black,
+                          primaryColor: team2.primaryColor,
+                          secondaryColor: team2.secondaryColor,
                         ),
                         SizedBox(height: 8),
                         Text(match.team2, style: TextStyle(fontWeight: FontWeight.bold)),

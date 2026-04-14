@@ -31,9 +31,6 @@ class LogoPainter extends CustomPainter {
       ..strokeWidth = 2.5
       ..strokeCap = StrokeCap.round;
 
-    // Draw stylized "B" which also looks like a cricket stadium boundary
-    final path = Path();
-    
     // Outer boundary circle (partial)
     canvas.drawArc(
       Rect.fromLTWH(0, 0, size.width, size.height),

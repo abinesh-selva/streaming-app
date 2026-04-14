@@ -24,6 +24,46 @@ class StreamServer {
   StreamServer({required this.id, required this.label, required this.url});
 }
 
+class PlayerStat {
+  final String name;
+  final String stats;
+  final bool isOut;
+
+  PlayerStat({required this.name, required this.stats, this.isOut = false});
+
+  factory PlayerStat.fromJson(Map<String, dynamic> json) => PlayerStat(
+    name: json['name'],
+    stats: json['stats'],
+    isOut: json['isOut'] ?? false,
+  );
+}
+
+class BowlerStat {
+  final String name;
+  final String stats;
+
+  BowlerStat({required this.name, required this.stats});
+
+  factory BowlerStat.fromJson(Map<String, dynamic> json) => BowlerStat(
+    name: json['name'],
+    stats: json['stats'],
+  );
+}
+
+class Scorecard {
+  final List<PlayerStat> batsmen;
+  final List<BowlerStat> bowlers;
+  final String lastWicket;
+
+  Scorecard({required this.batsmen, required this.bowlers, required this.lastWicket});
+
+  factory Scorecard.fromJson(Map<String, dynamic> json) => Scorecard(
+    batsmen: (json['batsmen'] as List).map((b) => PlayerStat.fromJson(b)).toList(),
+    bowlers: (json['bowlers'] as List).map((b) => BowlerStat.fromJson(b)).toList(),
+    lastWicket: json['lastWicket'] ?? '',
+  );
+}
+
 class SportMatch {
   final String id;
   final String league;
@@ -37,6 +77,7 @@ class SportMatch {
   final String summary;
   final String? startTime;
   final List<StreamServer>? streams;
+  final Scorecard? scorecard;
 
   SportMatch({
     required this.id,
@@ -51,5 +92,6 @@ class SportMatch {
     required this.summary,
     this.startTime,
     this.streams,
+    this.scorecard,
   });
 }

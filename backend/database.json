@@ -13,7 +13,19 @@
     "streams": [
       { "id": "s1", "label": "Server 1 (HD)", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" },
       { "id": "s2", "label": "Server 2 (SD)", "url": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8" }
-    ]
+    ],
+    "scorecard": {
+      "batsmen": [
+        { "name": "Rohit Sharma", "stats": "45 (32)", "isOut": false },
+        { "name": "Ishan Kishan", "stats": "22 (14)", "isOut": true },
+        { "name": "Surya Kumar", "stats": "68* (40)", "isOut": false }
+      ],
+      "bowlers": [
+        { "name": "Deepak Chahar", "stats": "3-0-28-1" },
+        { "name": "M. Pathirana", "stats": "2.2-0-18-2" }
+      ],
+      "lastWicket": "Ishan Kishan c Dhoni b Pathirana 22"
+    }
   },
   {
     "id": "m2",
