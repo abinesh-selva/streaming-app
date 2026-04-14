@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricfyTV Admin Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: white; padding: 2rem; }
+        .match-card { background: #1e1e1e; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid #333; }
+        input, select { background: #2a2a2a; border: 1px solid #444; color: white; padding: 0.5rem; border-radius: 4px; margin: 4px; }
+        button { background: #1affd5; border: none; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .label { color: #888; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <h1>🚀 CricfyTV Admin</h1>
+    <div id="matches-list"></div>
+
+    <script>
+        const API_URL = 'http://localhost:3001';
+
+        async function loadMatches() {
+            const res = await fetch(`${API_URL}/matches`);
+            const matches = await res.json();
+            const list = document.getElementById('matches-list');
+            list.innerHTML = matches.map(m => `
+                <div class="match-card">
+                    <h3>${m.team1} vs ${m.team2} (${m.league})</h3>
+                    <div>
+                        <span class="label">Score 1:</span>
+                        <input type="text" value="${m.score1 || ''}" onchange="updateMatch('${m.id}', {score1: this.value})">
+                        <span class="label">Overs:</span>
+                        <input type="text" value="${m.overs1 || ''}" onchange="updateMatch('${m.id}', {overs1: this.value})">
+                    </div>
+                    <div style="margin-top:10px">
+                        <span class="label">Summary:</span>
+                        <input type="text" style="width: 300px" value="${m.summary}" onchange="updateMatch('${m.id}', {summary: this.value})">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function updateMatch(id, data) {
+            await fetch(`${API_URL}/matches/${id}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            console.log('Updated', id, data);
+        }
+
+        loadMatches();
+    </script>
+</body>
+</html>

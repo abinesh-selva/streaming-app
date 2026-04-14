@@ -1,0 +1,21 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="mintGradient" x1="0%" y1="0%" x2="110%" y2="100%">
+      <stop offset="0%" stop-color="#1AFFD5" />
+      <stop offset="100%" stop-color="#00C9A7" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="250" fill="#0A0A0B" />
+  <circle cx="256" cy="256" r="235" stroke="#1AFFD5" stroke-width="2" stroke-opacity="0.3" filter="url(#neonGlow)" />
+  <circle cx="256" cy="256" r="225" stroke="#1AFFD5" stroke-width="6" />
+  <path d="M140 160 Q80 256 140 352" stroke="#FF4D4D" stroke-width="10" stroke-linecap="round" stroke-dasharray="15 10" filter="url(#neonGlow)" />
+  <path d="M155 170 Q100 256 155 342" stroke="#FF4D4D" stroke-width="4" stroke-opacity="0.5" stroke-linecap="round" />
+  <path d="M190 140 V320 M190 140 Q380 140 210 230 Q400 230 190 320" stroke="url(#mintGradient)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" filter="url(#neonGlow)" />
+  <text x="256" y="420" text-anchor="middle" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="54" letter-spacing="-1">
+    Boundary<tspan fill="#1AFFD5">Cric</tspan>
+  </text>
+</svg>

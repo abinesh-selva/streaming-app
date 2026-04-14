@@ -1,0 +1,27 @@
+[
+  {
+    "id": "m1",
+    "league": "IPL 2024",
+    "team1": "MI",
+    "team2": "CSK",
+    "status": "LIVE",
+    "score1": "145/4",
+    "overs1": "16.2",
+    "score2": "",
+    "overs2": "",
+    "summary": "MI elected to bat",
+    "streams": [
+      { "id": "s1", "label": "Server 1 (HD)", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" },
+      { "id": "s2", "label": "Server 2 (SD)", "url": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8" }
+    ]
+  },
+  {
+    "id": "m2",
+    "league": "IPL 2024",
+    "team1": "RCB",
+    "team2": "KKR",
+    "status": "UPCOMING",
+    "startTime": "Today, 7:30 PM",
+    "summary": "M. Chinnaswamy Stadium, Bengaluru"
+  }
+]
